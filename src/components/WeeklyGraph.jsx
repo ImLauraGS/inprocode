@@ -2,25 +2,25 @@ import React, { useContext } from 'react';
 import { ExpensesContext } from '../contexts/ExpensesContext';
 import { Bar } from 'react-chartjs-2';
 import {
-    Chart as ChartJS,
-    CategoryScale,
-    LinearScale,
-    BarElement,
-    Title,
-    Tooltip,
-    Legend,
-    Filler,
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend,
+  Filler,
 } from 'chart.js';
 import { useTranslation } from "react-i18next";
 
 ChartJS.register(
-    CategoryScale,
-    LinearScale,
-    BarElement,
-    Title,
-    Tooltip,
-    Legend,
-    Filler
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend,
+  Filler
 );
 
 export default function WeeklyGraph() {
@@ -28,12 +28,12 @@ export default function WeeklyGraph() {
   const { t } = useTranslation();
 
   const weekDays = [
-    t('week.monday'), 
-    t('week.tuesday'), 
-    t('week.wednesday'), 
-    t('week.thursday'), 
-    t('week.friday'), 
-    t('week.saturday'), 
+    t('week.monday'),
+    t('week.tuesday'),
+    t('week.wednesday'),
+    t('week.thursday'),
+    t('week.friday'),
+    t('week.saturday'),
     t('week.sunday')
   ];
   const dailyExpenses = calculateWeeklyExpenses();

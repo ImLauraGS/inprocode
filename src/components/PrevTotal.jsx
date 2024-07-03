@@ -1,4 +1,3 @@
-
 import React, { useContext, useMemo } from 'react';
 import { ExpensesContext } from '../contexts/ExpensesContext';
 import { useTranslation } from "react-i18next";
