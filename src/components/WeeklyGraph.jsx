@@ -1,5 +1,3 @@
-// src/components/WeeklyGraph.js
-
 import React, { useContext } from 'react';
 import { ExpensesContext } from '../contexts/ExpensesContext';
 import { Bar } from 'react-chartjs-2';
@@ -13,6 +11,7 @@ import {
     Legend,
     Filler,
 } from 'chart.js';
+import { useTranslation } from "react-i18next";
 
 ChartJS.register(
     CategoryScale,
@@ -26,15 +25,24 @@ ChartJS.register(
 
 export default function WeeklyGraph() {
   const { calculateWeeklyExpenses } = useContext(ExpensesContext);
+  const { t } = useTranslation();
 
-  const weekDays = ["dl", "dt", "dm", "dj", "dv", "ds", "dg"];
+  const weekDays = [
+    t('week.monday'), 
+    t('week.tuesday'), 
+    t('week.wednesday'), 
+    t('week.thursday'), 
+    t('week.friday'), 
+    t('week.saturday'), 
+    t('week.sunday')
+  ];
   const dailyExpenses = calculateWeeklyExpenses();
 
   const chartData = {
     labels: weekDays,
     datasets: [
       {
-        label: 'Gastos',
+        label: t('expensesDay'),
         data: dailyExpenses,
         backgroundColor: 'rgba(0, 220, 195, 0.5)'
       }
